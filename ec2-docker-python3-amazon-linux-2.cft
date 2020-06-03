@@ -77,6 +77,7 @@
              "yum update -y\n",
              "yum install python3-devel -y\n",
              "yum install jq -y\n",
+             "yum install git -y\n",
              "amazon-linux-extras install -y docker\n",
              "systemctl start docker\n",
              "systemctl enable docker\n",
