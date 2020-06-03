@@ -80,7 +80,8 @@
              "amazon-linux-extras install -y docker\n",
              "systemctl start docker\n",
              "systemctl enable docker\n",
-             "usermod -a -G docker ec2-user\n"
+             "usermod -a -G docker ec2-user\n",
+             "git clone https://github.com/opsani/servo-ec2asg-wavefront-vegeta.git\n"
 		]]}}
 
       }
