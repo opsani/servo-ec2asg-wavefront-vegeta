@@ -82,7 +82,9 @@
              "systemctl start docker\n",
              "systemctl enable docker\n",
              "usermod -a -G docker ec2-user\n",
-             "git clone https://github.com/opsani/servo-ec2asg-wavefront-vegeta.git\n"
+             "git clone https://github.com/opsani/servo-ec2asg-wavefront-vegeta.git /home/ec2-user/servo\n",
+             "chown -R ec2-user /home/ec2-user/servo\n",
+             "chgrp -R ec2-user /home/ec2-user/servo\n"
 		]]}}
 
       }
