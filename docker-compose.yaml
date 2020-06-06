@@ -1,0 +1,30 @@
+version: '3.2'
+services:
+  opsani-servo:
+
+    build: .
+
+    environment:
+      - AWS_REGION=${AWS_REGION:-us-east-1}
+      - PYTHONUNBUFFERED=1
+
+    command: ["--account","${OPSANI_ACCOUNT_ID}", "$OPSANI_APPLICATION_ID"]
+
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10000k"
+        max-file: "10"
+
+    volumes:
+      - type: bind
+        source: ./config.yaml
+        target: /servo/config.yaml
+        read_only: true
+
+    secrets:
+      - optune_auth_token
+
+secrets:
+  optune_auth_token:
+    file: ./opsani_auth_token.txt

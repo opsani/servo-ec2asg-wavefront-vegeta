@@ -13,7 +13,7 @@ ENV VEGETA_VER=v12.8.3
 
 # Install dependencies
 RUN apt update && apt -y install procps tcpdump curl wget
-RUN pip3 install requests PyYAML python-dateutil awscli
+RUN pip3 install requests PyYAML python-dateutil awscli boto3
 
 RUN mkdir -p measure.d
 
@@ -31,10 +31,12 @@ ADD https://raw.githubusercontent.com/opsani/servo-wavefront/master/measure meas
 ADD https://raw.githubusercontent.com/opsani/servo/master/measure.py measure.d/
 
 RUN curl -sL https://github.com/tsenart/vegeta/releases/download/v12.8.3/vegeta-12.8.3-linux-amd64.tar.gz| tar xfz - -C /usr/local/bin/
-RUN chmod a+rwx /servo/adjust /servo/measure /servo/servo /usr/local/bin/kubectl /usr/local/bin/vegeta \
+RUN chmod a+rwx /servo/adjust /servo/measure /servo/servo /usr/local/bin/vegeta \
   && chmod a+rwx /servo/measure.d/measure-wavefront /servo/measure.d/measure-vegeta \
   && chmod a+r /servo/adjust.py /servo/measure.py /servo/measure.d/measure.py
 
 ENV PYTHONUNBUFFERED=1
 
 ENTRYPOINT [ "python3", "servo" ]
+CMD [""]
+
