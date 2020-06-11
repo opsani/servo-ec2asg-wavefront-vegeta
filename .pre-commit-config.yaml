@@ -1,8 +1,12 @@
 # .pre-commit-config.yaml
 repos:
--   repo: https://github.com/awslabs/cfn-python-lint
+  - repo: https://github.com/awslabs/cfn-python-lint
     rev: v0.33.0 # The version of cfn-lint to use
     hooks:
-    -   id: cfn-python-lint
+      - id: cfn-python-lint
         name: CloudFormation Linter
         files: '(.*?)\.(cft)$'
+  - repo: https://github.com/prettier/prettier
+    rev: "" # Use the sha or tag you want to point at
+    hooks:
+      - id: prettier
