@@ -39,8 +39,20 @@
       "ConstraintDescription": "Must be a valid IP CIDR range of the form x.x.x.x/x"
     },
     "VpcId":{
-      "Description":"Provide VPC resource ID ",
-      "Type":"String"
+        "Description":"Provide VPC resource ID ",
+        "Type":"String"
+    },
+    "PrivateSubnetId":{
+        "Description":"Provide Public Subnet ID ",
+        "Type":"String"
+    },
+    "VpcName": {
+        "Description": "Prefix VPC resource names for easy identification",
+        "Type": "String"
+    },
+    "AmiId":{
+        "Description":"Ami to launch ec2 instances",
+        "Type":"String"
     }
   },
   "Mappings" : {
