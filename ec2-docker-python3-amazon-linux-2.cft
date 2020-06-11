@@ -53,6 +53,10 @@
       "VpcName":{
          "Description":"Prefix VPC resource names for easy identification",
          "Type":"String"
+      },
+      "PrivateSubnetId":{
+         "Description":"Provide Public Subnet ID ",
+         "Type":"String"
       }
    },
    "Mappings":{
@@ -133,6 +137,15 @@
             "InstanceType":{
                "Ref":"InstanceType"
             },
+            "NetworkInterfaces":[
+               {
+                  "AssociatePublicIpAddress":false,
+                  "DeviceIndex":"0",
+                  "SubnetId":{
+                     "Ref":"PrivateSubnetId"
+                  }
+               }
+            ],
             "SecurityGroups":[
                {
                   "Ref":"ServoSecurityGroup"
