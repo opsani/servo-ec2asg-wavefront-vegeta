@@ -146,11 +146,6 @@
                   }
                }
             ],
-            "SecurityGroups":[
-               {
-                  "Ref":"ServoSecurityGroup"
-               }
-            ],
             "KeyName":{
                "Ref":"KeyName"
             },
